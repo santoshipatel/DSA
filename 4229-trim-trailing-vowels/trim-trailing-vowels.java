@@ -1,9 +1,18 @@
 class Solution {
     public String trimTrailingVowels(String s) {
-    int i = s.length() - 1;
-      while(i >= 0 && "aeiou".indexOf(s.charAt(i)) != -1){
-              i--;
-        }
-        return s.substring(0, i + 1);    
+        int n = s.length(); 
+        int count = 0; 
+        String vowels = "aeiou"; 
+        
+        for (int i = n - 1; i >= 0; i--) {
+            char ch = s.charAt(i); 
+            if (vowels.indexOf(ch) != -1) {
+                count++; 
+            } else { 
+                break; 
+            }
+        } 
+        
+        return s.substring(0, n - count); // Changed to lowercase 'substring'
     }
 }
